@@ -22,10 +22,7 @@ class DoubanDemoSpider(CrawlSpider):
             #inspect_response(response,self)
             try:
                 item['name']=response.xpath("//div[@id='wrapper']/h1/span/text()").extract()[0]
-                item["author"]=response.xpath("//div[@id='info']/span[1]/a/text()")[0].extract()
-                #item['page']=response.xpath("//div[@id='info']/text()").extract()[4]
-                #item['time']=response.xpath("//div[@id='info']/text()").extract()[3]
-                #item['price']=response.xpath("//div[@id='info']/text()").extract()[5]
+                item["author"]=response.xpath("//div[@id='info']/a[1]/text()")[0].extract()
                 item['pingjia']=response.xpath("//div[@class='rating_self clearfix']/strong/text()")[0].extract()
                 content=response.xpath("//div[@class='intro']//p/text()").extract()
                 author_jianjie=response.xpath("//div[@class='intro']//p/text()").extract()
